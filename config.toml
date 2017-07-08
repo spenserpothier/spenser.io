@@ -57,6 +57,14 @@ theme = "beautifulhugo"
 	url = "/project/shelby-blair-portfolio/"
 
 [[menu.main]]
+	name = "All"
+	parent = "projects"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = 4 
+	identifier = "all-projects"
+	url = "/project/"
+
+[[menu.main]]
 	name = "About Me"
 	#pre = "<i class='fa fa-heart'></i>"
 	weight = -110

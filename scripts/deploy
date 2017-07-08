@@ -9,6 +9,9 @@ if [ $# -eq 0 ]; then
 elif [ $1 == "dry-run" ]; then
     echo "Dry-run of files to be transfered"
     rsync --dry-run -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" ./public/ $DEST_USER@$DEST_HOST:$DEST_PATH
+elif [ $1 == "preview" ]; then
+    echo "Pushing to live site"
+    rsync -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" ./public/ $DEST_USER@$DEST_HOST:$DEST_PATH/../previewsite
 elif [ $1 == "live" ]; then
     echo "Pushing to live site"
     rsync -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" ./public/ $DEST_USER@$DEST_HOST:$DEST_PATH
