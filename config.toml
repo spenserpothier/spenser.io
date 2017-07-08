@@ -1,0 +1,71 @@
+baseURL = "https://spenser.io/"
+languageCode = "en-us"
+title = "Home Page"
+theme = "beautifulhugo"
+
+[Author]
+  name = "Spenser Pothier"
+  email = "contact@spenser.io"
+  facebook = "spenserpothier"
+  github = "spenserpothier"
+  twitter = "spenserpothier"
+  linkedin = "spenserpothier"
+  keybase = "spenserpothier"
+#  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
+#  gitlab = "username"
+#  reddit = "username"
+#  xing = "username"
+#  stackoverflow = "users/XXXXXXX/username"
+#  snapchat = "username"
+#  instagram = "username"
+#  youtube = "user/username" # or channel/channelname
+#  soundcloud = "username"
+#  spotify = "username"
+#  bandcamp = "username"
+#  itchio = "username"
+
+[Params]
+  GithubID="spenserpothier"
+  commit = "https://github.com/spenserpothier/spenser.io/tree/"
+
+[[menu.main]]
+	name = "Projects"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = -110
+	identifier = "projects"
+	url = "/project/"
+[[menu.main]]
+	name = "URL Shortener"
+	parent = "projects"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = 1
+	identifier = "urlshortener"
+	url = "/project/urlshortener/"
+[[menu.main]]
+	name = "Aimless Wonderers"
+	parent = "projects"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = 2 
+	identifier = "aimless-wonderers"
+	url = "/project/aimless-wonderers/"
+[[menu.main]]
+	name = "Shelby Blair Portfolio"
+	parent = "projects"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = 3 
+	identifier = "shelby-blair-portfolio"
+	url = "/project/shelby-blair-portfolio/"
+
+[[menu.main]]
+	name = "About Me"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = -110
+	identifier = "about"
+	url = "/page/about/"
+
+[[menu.main]]
+	name = "Resume"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = -110
+	identifier = "resume"
+	url = "/spenser_resume_latest.pdf"
