@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        {{ .Content }}
+      </article>
+
+      {{ if or (isset .Params "homepage") (isset .Params "project_url") }}
+      <h3> Additional Info </h3>
+      {{ end }}
+      {{ if isset .Params "homepage" }}
+	<span class="fa fa-external-link"></span> <a href="{{index .Params "homepage" }}" target="_blank">{{ index .Params "homepage" }}</a><br />
+      {{ end }}
+      {{ if isset .Params "project_url" }}
+	<span class="fa fa-github"></span> <a href="{{index .Params "project_url" }}" target="_blank">{{ index .Params "project_url" }}</a><br />
+      {{ end }}
+
+      <ul class="pager blog-pager">
+        {{ if .PrevInSection }}
+          <li class="previous">
+            <a href="{{ .PrevInSection.Permalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr; Previous Project</a>
+          </li>
+        {{ end }}
+        {{ if .NextInSection }}
+          <li class="next">
+            <a href="{{ .NextInSection.Permalink }}" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">Next Project &rarr;</a>
+          </li>
+        {{ end }}
+      </ul>
+
+      {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (.Site.Params.comments)) }}
+        {{ if .Site.DisqusShortname }}
+          <div class="disqus-comments">
+            {{ template "_internal/disqus.html" . }}
+          </div>
+        {{ end }}
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ end }}

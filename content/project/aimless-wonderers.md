@@ -1,8 +1,7 @@
 ---
 title: "Aimless Wonderers"
 description: "Hiking and Travel Blog"
-#tags: ["go", "utilities"]
-#categories: ["tools"]
+homepage: "http://www.aimlesswonderers.com"
 ---
 
 Hiking blog that I co-founded with Shelby Blair to chronicle our adventures throughout the Pacific Northwest.<br/>

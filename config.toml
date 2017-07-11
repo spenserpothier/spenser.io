@@ -2,6 +2,7 @@ baseURL = "https://spenser.io/"
 languageCode = "en-us"
 title = "Home Page"
 theme = "beautifulhugo"
+metaDataFormat = "yaml"
 
 [Author]
   name = "Spenser Pothier"
@@ -27,6 +28,7 @@ theme = "beautifulhugo"
 [Params]
   GithubID="spenserpothier"
   commit = "https://github.com/spenserpothier/spenser.io/tree/"
+  #subtitle = "Home Page"
 
 [[menu.main]]
 	name = "Projects"
