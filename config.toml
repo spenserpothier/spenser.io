@@ -1,81 +1,75 @@
 baseURL = "https://spenser.io/"
-languageCode = "en-us"
-title = "Home Page"
-theme = "beautifulhugo"
+defaultContentLanguage = "en"
+languageCode = "en"
+title = "Spenser Pothier"
+theme = "LoveIt"
 metaDataFormat = "yaml"
 
-[Author]
-  name = "Spenser Pothier"
-  email = "contact@spenser.io"
-  facebook = "spenserpothier"
-  github = "spenserpothier"
-  twitter = "spenserpothier"
-  linkedin = "spenserpothier"
-  keybase = "spenserpothier"
-#  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-#  gitlab = "username"
-#  reddit = "username"
-#  xing = "username"
-#  stackoverflow = "users/XXXXXXX/username"
-#  snapchat = "username"
-#  instagram = "username"
-#  youtube = "user/username" # or channel/channelname
-#  soundcloud = "username"
-#  spotify = "username"
-#  bandcamp = "username"
-#  itchio = "username"
+[author]
+name = "Spenser Pothier"
+email = "contact@spenser.io"
+link = ""
 
-[Params]
-  GithubID="spenserpothier"
-  commit = "https://github.com/spenserpothier/spenser.io/tree/"
-  #subtitle = "Home Page"
+[params]
+# LoveIt theme version
+version = "0.2.X"
+[params.home]
 
-[[menu.main]]
-	name = "Projects"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = -110
-	identifier = "projects"
-	url = "/project/"
-[[menu.main]]
-	name = "URL Shortener"
-	parent = "projects"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = 1
-	identifier = "urlshortener"
-	url = "/project/urlshortener/"
-[[menu.main]]
-	name = "Aimless Wonderers"
-	parent = "projects"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = 2 
-	identifier = "aimless-wonderers"
-	url = "/project/aimless-wonderers/"
-[[menu.main]]
-	name = "Shelby Blair Portfolio"
-	parent = "projects"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = 3 
-	identifier = "shelby-blair-portfolio"
-	url = "/project/shelby-blair-portfolio/"
+[params.home.profile]
+enable = true
+gravatarEmail = "mail@spenser.io"
+title = "Spenser Pothier"
+subtitle = "Site Reliability Engineer"
+typeit = true
+social = true
+[params.social]
+name = "Spenser Pothier"
+email = "contact@spenser.io"
+Github = "spenserpothier"
+Twitter = "spenserpothier"
+Linkedin = "spenserpothier"
+Keybase = "spenserpothier"
+RSS = true
 
-[[menu.main]]
-	name = "All"
-	parent = "projects"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = 4 
-	identifier = "all-projects"
-	url = "/project/"
+[params.home.posts]
+enable = false
+paginate = 6
+
+#[[menu.main]]
+#    name = "Blog"
+#    #pre = "<i class='fa fa-heart'></i>"
+#    weight = -115
+#    identifier = "blog"
+#    url = "/posts/index.html"
 
 [[menu.main]]
 	name = "About Me"
 	#pre = "<i class='fa fa-heart'></i>"
 	weight = -110
 	identifier = "about"
-	url = "/page/about/"
+	url = "/pages/about/index.html"
 
-[[menu.main]]
-	name = "Resume"
-	#pre = "<i class='fa fa-heart'></i>"
-	weight = -110
-	identifier = "resume"
-	url = "/spenser_resume_latest.pdf"
+#[[menu.main]]
+#	name = "Resume"
+## 	pre = "<i class='fa fa-heart'></i>"
+#	weight = -110
+#	identifier = "resume"
+#	url = "/spenser_resume_latest.pdf"
+
+[params.search]
+  enable = true
+  # type of search engine ("lunr", "algolia")
+  type = "lunr"
+  # max index length of the chunked content
+  contentLength = 4000
+  # placeholder of the search bar
+  placeholder = ""
+  # LoveIt NEW | 0.2.1 max number of results length
+  maxResultLength = 10
+  # LoveIt NEW | 0.2.3 snippet length of the result
+  snippetLength = 30
+  # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
+  highlightTag = "em"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
