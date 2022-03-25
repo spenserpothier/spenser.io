@@ -2,6 +2,12 @@
 title: "About Me"
 date: 2017-07-07T22:53:02-07:00
 description: "About Me"
+article:
+showAuthor: false
+showPagination: false
+showReadingTime: false
+showWordCount: false
+showDate: false
 ---
 
 My name is Spenser Pothier, I live in Seattle, WA. I am an engineer and I help create software on all platforms. 
