@@ -11,6 +11,8 @@ showPagination: false
 showReadingTime: false
 showWordCount: false
 showDate: false
+showTableOfContents: false
+sharingLinks: false
 ---
 This is a [now page](https://nownownow.com/about)
 

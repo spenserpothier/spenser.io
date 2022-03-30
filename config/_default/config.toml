@@ -4,14 +4,13 @@ languageCode = "en-US"
 title = "Spenser Pothier"
 theme = "congo"
 metaDataFormat = "yaml"
-darkMode = "auto"
-darkToggle = true
+#darkMode = "auto"
+#darkToggle = true
 
 
 
 [author]
     name = "Spenser Pothier"
-    #email = "contact@spenser.io"
     image = "https://www.gravatar.com/avatar/31d03ca4600d87d851dbab4b4da40882?s=240&d=mp"
     title = "Spenser Pothier"
     description = "Site Reliability Engineer"
@@ -22,11 +21,6 @@ darkToggle = true
         {Linkedin = "https://www.linkedin.com/in/spenserpothier/"},
         {Keybase = "https://keybase.io/spenserpothier"}
     ]
-
-[params.homepage]
-    layout = "custom"
-    showRecent = true
-    mainSections = ["projects", "posts"]
 
 [[menu.main]]
 	name = "About Me"
@@ -43,4 +37,4 @@ darkToggle = true
     url = "/pages/now/index.html"
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSON"]
