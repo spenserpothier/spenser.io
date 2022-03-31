@@ -4,10 +4,6 @@ languageCode = "en-US"
 title = "Spenser Pothier"
 theme = "congo"
 metaDataFormat = "yaml"
-#darkMode = "auto"
-#darkToggle = true
-
-
 
 [author]
     name = "Spenser Pothier"

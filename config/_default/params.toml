@@ -1,5 +1,5 @@
 mainSections = ["posts"]
-defaultAppearance = "light"
+defaultAppearance = "dark"
 showAppearanceSwitcher = true
 
 enableSearch = true
