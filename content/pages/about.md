@@ -2,6 +2,13 @@
 title: "About Me"
 date: 2017-07-07T22:53:02-07:00
 description: "About Me"
+article:
+showAuthor: false
+showPagination: false
+showReadingTime: false
+showWordCount: false
+showDate: false
+sharingLinks: false
 ---
 
 My name is Spenser Pothier, I live in Seattle, WA. I am an engineer and I help create software on all platforms. 
@@ -10,7 +17,7 @@ My name is Spenser Pothier, I live in Seattle, WA. I am an engineer and I help c
 
 {{< fa fa-graduation-cap >}} I went to the [University of Washington - Bothell](http://uwb.edu/css) to pursue a degree in Computing and Software Systems
 
-{{< fa fa-heart >}} I enjoy spending time outdoors hiking and backpaking with my wife and sharing it on our blog, [Aimless Wonderers](http://www.aimlesswonderers.com). I also enjoy staying at home hanging out with our pets, playing games with friends, and working on improving our house and garden.
+{{< fa fa-heart >}} I enjoy spending time outdoors hiking and backpacking with my wife. I also enjoy staying at home hanging out with our pets, playing games with friends, and working on improving our house and garden.
 
 {{< fa fa-code >}} I am always trying to learn new technologies, but lately my focus has been on [Go](https://golang.org) and [Kubernetes](https://kubernetes.io)
 

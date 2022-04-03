@@ -1,0 +1,36 @@
+baseURL = "https://spenser.io/"
+defaultContentLanguage = "en"
+languageCode = "en-US"
+title = "Spenser Pothier"
+theme = "congo"
+metaDataFormat = "yaml"
+
+[author]
+    name = "Spenser Pothier"
+    image = "https://www.gravatar.com/avatar/31d03ca4600d87d851dbab4b4da40882?s=240&d=mp"
+    title = "Spenser Pothier"
+    description = "Site Reliability Engineer"
+    links = [
+        {email = "mailto:contact@spenser.io"},
+        {github = "https://github.com/spenserpothier"},
+        {Twitter = "https://twitter.com/spenserpothier"},
+        {Linkedin = "https://www.linkedin.com/in/spenserpothier/"},
+        {Keybase = "https://keybase.io/spenserpothier"}
+    ]
+
+[[menu.main]]
+	name = "About Me"
+	#pre = "<i class='fa fa-heart'></i>"
+	weight = -10
+	identifier = "about"
+	url = "/pages/about/index.html"
+
+[[menu.main]]
+    name = "Now"
+    #pre = "<i class='fa fa-heart'></i>"
+    weight = -20
+    identifier = "Now"
+    url = "/pages/now/index.html"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

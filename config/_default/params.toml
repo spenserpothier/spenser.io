@@ -1,0 +1,43 @@
+mainSections = ["posts"]
+defaultAppearance = "dark"
+showAppearanceSwitcher = true
+
+enableSearch = true
+enableCodeCopy = true
+
+[homepage]
+layout = "custom"
+showRecent = true
+
+
+[article]
+showDate = true
+showDateUpdated = true
+showAuthor = false
+showBreadcrumbs = true
+showDraftLabel = true
+#showEdit = true
+#editURL = "https://github.com/jpanther/congo/tree/dev/exampleSite/content/"
+#editAppendPath = true
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = true
+showTableOfContents = true
+showTaxonomies = false
+showWordCount = true
+sharingLinks = ["email", "twitter"]
+# sharingLinks = ["facebook", "twitter", "pinterest", "reddit", "linkedin", "email"]
+
+
+[list]
+showBreadcrumbs = true
+showSummary = true
+showTableOfContents = true
+groupByYear = false
+
+[sitemap]
+excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+showTermCount = true

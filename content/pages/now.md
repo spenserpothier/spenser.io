@@ -5,10 +5,15 @@ description: "What I'm working on now"
 aliases:
 - /now/
 
-toc:
-enable: false
+article:
+showAuthor: false
+showPagination: false
+showReadingTime: false
+showWordCount: false
+showDate: false
+showTableOfContents: false
+sharingLinks: false
 ---
-
 This is a [now page](https://nownownow.com/about)
 
 ## Where
