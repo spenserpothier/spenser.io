@@ -7,7 +7,7 @@ enableCodeCopy = true
 
 [homepage]
 layout = "custom"
-#showRecent = true
+showRecent = true
 
 
 [article]
