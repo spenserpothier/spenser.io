@@ -32,5 +32,12 @@ metaDataFormat = "yaml"
     identifier = "Now"
     url = "/pages/now/index.html"
 
+[[menu.main]]
+    name = "Blog"
+    #pre = "<i class='fa fa-heart'></i>"
+    weight = -20
+    identifier = "Blog"
+    url = "/posts/index.html"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
