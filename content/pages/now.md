@@ -18,12 +18,15 @@ This is a [now page](https://nownownow.com/about)
 
 ## Where
 
-Greater Seattle area
+Greater Seattle area. I observe the [Pacific time zone](https://time.is/Seattle)
 
 ## What I'm Doing Now
 
-Working full time as an SRE at [Automox](https://automox.com)  
-Perfecting my mobile work setup.
+Perfecting my [mobile work setup](/posts/mobile-tech-setup.html).
+
+Building a [second brain](https://www.buildingasecondbrain.com/).
+
+Working on attaining a [Certified Kubernetes Administrator](https://www.cncf.io/certification/cka/) certificate.
 
 ## What is on my backlog
 

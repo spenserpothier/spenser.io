@@ -4,6 +4,7 @@ languageCode = "en-US"
 title = "Spenser Pothier"
 theme = "congo"
 metaDataFormat = "yaml"
+uglyUrls = true
 
 [author]
     name = "Spenser Pothier"
@@ -13,9 +14,11 @@ metaDataFormat = "yaml"
     links = [
         {email = "mailto:contact@spenser.io"},
         {github = "https://github.com/spenserpothier"},
+        {gitlab = "https://gitlab.com/spenserpothier"},
         {Twitter = "https://twitter.com/spenserpothier"},
         {Linkedin = "https://www.linkedin.com/in/spenserpothier/"},
-        {Keybase = "https://keybase.io/spenserpothier"}
+#        {Twitter = "https://twitter.com/spenser.in.3d"},
+#        {Keybase = "https://keybase.io/spenserpothier"}
     ]
 
 [[menu.main]]
@@ -23,21 +26,21 @@ metaDataFormat = "yaml"
 	#pre = "<i class='fa fa-heart'></i>"
 	weight = -10
 	identifier = "about"
-	url = "/pages/about/index.html"
+	url = "/pages/about.html"
 
 [[menu.main]]
     name = "Now"
     #pre = "<i class='fa fa-heart'></i>"
     weight = -20
     identifier = "Now"
-    url = "/pages/now/index.html"
+    url = "/pages/now.html"
 
 [[menu.main]]
     name = "Blog"
     #pre = "<i class='fa fa-heart'></i>"
     weight = -20
     identifier = "Blog"
-    url = "/posts/index.html"
+    url = "/posts.html"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

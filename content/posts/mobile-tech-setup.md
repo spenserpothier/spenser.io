@@ -2,6 +2,7 @@
 title: "Mobile Tech Setup"
 date: 2022-05-02T21:00:00-07:00
 summary: "I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post that contains my mobile tech setup."
+
 ---
 
 I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post that contains my mobile tech setup.
@@ -9,7 +10,6 @@ I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post t
 ## Electronics
 
 - 2020 Macbook Pro M1 13"
-- 2019 Macbook Pro Intel 16" (employer provided)
 - AirPods Pro
 - iPhone 12 Pro
 - iPad Mini 6th Generation
@@ -25,7 +25,7 @@ I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post t
   - USB-C cables
   - HDMI
 
-## Gear
+## Other Gear
 
 - Roost V3 Laptop Stand
 - Hive Pocket
