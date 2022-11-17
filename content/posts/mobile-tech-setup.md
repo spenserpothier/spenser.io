@@ -17,7 +17,7 @@ I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post t
 - Apple Watch Series 6
 - Bose QC35 II
 - Keychron K7 Ultra-slim Wireless Mechanical Keyboard (and pouch)
-
+- SteamDeck
 - Nintendo Switch
 - Anker Dongle
 - Various cables

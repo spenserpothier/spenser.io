@@ -6,6 +6,10 @@ summary: |
     At my day job I was given the opportunity to contribute to a Terraform provider for datadog to add the ability to create a monitor using a JSON document.
 ---
 
+{{< alert >}}
+This article is not yet finished
+{{< /alert >}}
+
 ## Problem
 
 At my day job we use terraform pretty extensively for all of our infrastructure. We also use terraform along with some other automations to automatically create dashboards and monitors for new teams and services. 
