@@ -6,6 +6,14 @@
     url = "/pages/about.html"
 
 [[main]]
+name = "Recommended Techies"
+#    pre = "<i class='fa fa-heart'></i>"
+weight = -10
+parent = "about"
+identifier = "recommend"
+url = "/pages/recommend.html"
+
+[[main]]
     name = "Now"
     #pre = "<i class='fa fa-heart'></i>"
     weight = -20
