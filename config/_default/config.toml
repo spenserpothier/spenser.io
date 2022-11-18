@@ -23,3 +23,19 @@ uglyUrls = true
 menu = ['main']
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[deployment]
+
+[[deployment.targets]]
+name = "s3"
+URL = "s3://spenser.io?region=us-west-2"
+cloudFrontDistributionID = "E1CYM5LBM47AJI"
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=2629800, no-transform, public"
+gzip = true

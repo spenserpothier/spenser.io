@@ -1,0 +1,23 @@
+name: Build site
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: klakegg/hugo:alpine
+    steps:
+    - name: "Install git"
+      run: |
+        apk add git
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: "Build the site"
+      run: |
+        hugo --minify
+    - name: "Deploy the site"
+      env:
+        AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: hugo deploy
