@@ -9,8 +9,10 @@ showReadingTime: false
 showWordCount: false
 showDate: false
 sharingLinks: false
+layout: "recommendation"
+intro: |
+  Find and bookmark other techies' personal websites and such here to help support everyone. If I know you and you want to be added to this list, feel free to shoot me a message, or feel free to open a PR to <a href="https://github.com/spenserpothier/spenser.io/blob/main/content/pages/recommend.md?plain=1" target="_blank">this file</a> 
 ---
-Find and bookmark other techies' personal websites and such here to help support everyone.
 {{< 
   rec-card name="Miles Robson"
   title="Salesforce Developer"

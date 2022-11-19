@@ -1,0 +1,19 @@
+{{ define "main" }}
+<header>
+{{ if .Site.Params.article.showBreadcrumbs | default false }}
+{{ partial "breadcrumbs.html" . }}
+{{ end }}
+<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+{{ .Title | emojify }}
+</h1>
+</header>
+{{ if .Page.Params.intro }}
+<br/><p>{{ .Page.Params.intro | emojify}}</p><br/>
+{{ end }}
+<section class="flex max-w-full mt-6 dark:prose-invert">
+{{ .Content | emojify }}
+</section>
+<footer class="pt-8">
+{{ partial "sharing-links.html" . }}
+</footer>
+{{ end }}
