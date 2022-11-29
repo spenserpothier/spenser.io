@@ -10,7 +10,7 @@
 {{ if .Page.Params.intro }}
 <br/><p>{{ .Page.Params.intro | emojify}}</p><br/>
 {{ end }}
-<section class="flex max-w-full mt-6 dark:prose-invert">
+<section class="flex flex-wrap rec-container max-w-full mt-6 dark:prose-invert">
 {{ .Content | emojify }}
 </section>
 <footer class="pt-8">
