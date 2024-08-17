@@ -2,6 +2,7 @@
 title: "About Me"
 date: 2017-07-07T22:53:02-07:00
 description: "About Me"
+url: "/about"
 article:
 showAuthor: false
 showPagination: false
