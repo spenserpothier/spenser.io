@@ -39,3 +39,10 @@ intro: |
   avatar="https://s3.amazonaws.com/keybase_processed_uploads/e2b05f25c6aaa2b1025cb89461109705_360_360.jpg"
   keybase="aveldhousen"
   >}}
+{{<
+  rec-card name="Matthew Kuntz"
+  title="Principal Site Reliability Engineer"
+  avatar="/img_avatar_m.png"
+  site="https://mfkuntz.com/"
+  github="mfkuntz"
+  >}}
