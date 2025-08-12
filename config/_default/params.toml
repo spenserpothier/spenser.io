@@ -1,9 +1,10 @@
 mainSections = ["posts"]
 defaultAppearance = "dark"
-showAppearanceSwitcher = true
+
 
 enableSearch = true
 enableCodeCopy = true
+
 
 [homepage]
 layout = "custom"
@@ -26,7 +27,7 @@ showReadingTime = true
 showTableOfContents = true
 showTaxonomies = false
 showWordCount = true
-sharingLinks = ["email", "twitter"]
+sharingLinks = ["email", "bluesky"]
 # sharingLinks = ["facebook", "twitter", "pinterest", "reddit", "linkedin", "email"]
 
 

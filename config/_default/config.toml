@@ -6,20 +6,22 @@ theme = "congo"
 metaDataFormat = "yaml"
 uglyUrls = true
 
-[author]
-    name = "Spenser Pothier"
-    image = "https://www.gravatar.com/avatar/31d03ca4600d87d851dbab4b4da40882?s=240&d=mp"
-    title = "Spenser Pothier"
-    description = "Site Reliability Engineer"
-    links = [
-        {email = "mailto:contact@spenser.io"},
-        {github = "https://github.com/spenserpothier"},
-        {gitlab = "https://gitlab.com/spenserpothier"},
-        {Twitter = "https://twitter.com/spenserpothier"},
-        {Linkedin = "https://www.linkedin.com/in/spenserpothier/"},
-#        {Twitter = "https://twitter.com/spenser.in.3d"},
-#        {Keybase = "https://keybase.io/spenserpothier"}
-    ]
+[params]
+
+  [params.author]
+      name = "Spenser Pothier"
+      image = "https://www.gravatar.com/avatar/31d03ca4600d87d851dbab4b4da40882?s=240&d=mp"
+      title = "Spenser Pothier"
+      description = "Site Reliability Engineer"
+      links = [
+          {email = "mailto:contact@spenser.io"},
+          {github = "https://github.com/spenserpothier"},
+          {gitlab = "https://gitlab.com/spenserpothier"},
+          {bluesky = "https://bsky.app/profile/spenser.io"},
+          {Linkedin = "https://www.linkedin.com/in/spenserpothier/"},
+  #        {Twitter = "https://twitter.com/spenser.in.3d"},
+  #        {Keybase = "https://keybase.io/spenserpothier"}
+      ]
 menu = ['main']
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -39,3 +41,18 @@ gzip = true
 pattern = "^.+\\.(js|css|svg|ttf)$"
 cacheControl = "max-age=2629800, no-transform, public"
 gzip = true
+
+[imaging]
+resampleFilter = "Lanczos"
+quality = 85
+anchor = "Smart"
+
+[imaging.exif]
+includeFields = ""
+excludeFields = "GPS"
+disableDate = false
+disableLatLong = true
+
+
+[footer]
+showAppearanceSwitcher = true
