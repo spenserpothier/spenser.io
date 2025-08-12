@@ -1,0 +1,353 @@
+{{ define "main" }}
+<header>
+  {{ if .Site.Params.article.showBreadcrumbs | default false }}
+  {{ partial "breadcrumbs.html" . }}
+  {{ end }}
+  <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+    {{ .Title | emojify }}
+  </h1>
+  {{ if .Params.description }}
+  <p class="text-lg text-neutral-700 dark:text-neutral-300 mt-4">{{ .Params.description }}</p>
+  {{ end }}
+  {{ if .Date }}
+  <time class="text-sm text-neutral-500 dark:text-neutral-500 mt-2 block">
+    {{ .Date.Format "January 2, 2006" }}
+  </time>
+  {{ end }}
+</header>
+
+<section class="mt-8">
+  {{ .Content }}
+  
+  {{ $allImages := .Resources.ByType "image" }}
+  {{ $usedImages := slice }}
+  
+  <!-- Extract images used in shortcodes from page content -->
+  {{ $content := .RawContent }}
+  {{ range $match := findRE `\{\{<\s*gallery\s+.*?images="([^"]+)".*?>\}\}` $content }}
+    {{ $imagesList := replaceRE `.*images="([^"]+)".*` "$1" $match }}
+    {{ $imageNames := split $imagesList "," }}
+    {{ range $imageName := $imageNames }}
+      {{ $cleanName := trim $imageName " " }}
+      {{ $usedImages = $usedImages | append $cleanName }}
+    {{ end }}
+  {{ end }}
+  
+  <!-- Filter out used images from main gallery -->
+  {{ $remainingImages := slice }}
+  {{ range $image := $allImages }}
+    {{ $isUsed := false }}
+    {{ range $usedName := $usedImages }}
+      {{ if eq $image.Name $usedName }}
+        {{ $isUsed = true }}
+      {{ end }}
+    {{ end }}
+    {{ if not $isUsed }}
+      {{ $remainingImages = $remainingImages | append $image }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $remainingImages }}
+  <div class="photo-gallery mt-8">
+    <div class="masonry-grid">
+      {{ range $index, $image := $remainingImages }}
+      {{ $thumb := $image.Fit "240x240 q85" }}
+      {{ $large := $image.Resize "1200x q85" }}
+      {{ $aspectRatio := div (float $image.Width) (float $image.Height) }}
+      <div class="gallery-item cursor-pointer" 
+           data-src="{{ $large.Permalink }}" 
+           data-alt="{{ $image.Title | default $.Title }}"
+           data-width="{{ $image.Width }}" 
+           data-height="{{ $image.Height }}"
+           data-aspect="{{ $aspectRatio }}">
+        <img src="{{ $thumb.Permalink }}" alt="{{ $image.Title | default $.Title }}" 
+             class="gallery-thumb" loading="lazy">
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-image" src="" alt="">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev">❮</button>
+      <button class="lightbox-next">❯</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1rem;
+  line-height: 0;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+.gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.gallery-thumb,
+.gallery-thumb-original {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  image-orientation: from-image;
+  object-fit: cover;
+}
+
+/* Fallback for browsers that don't support image-orientation */
+@supports not (image-orientation: from-image) {
+  .gallery-thumb,
+  .gallery-thumb-original {
+    transform-origin: center center;
+  }
+}
+
+.gallery-thumb:hover,
+.gallery-thumb-original:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  image-orientation: from-image;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Make gallery flow with text content */
+.photo-gallery {
+  margin: 2rem 0;
+}
+
+.photo-gallery + p,
+.photo-gallery + h1,
+.photo-gallery + h2,
+.photo-gallery + h3,
+.photo-gallery + h4,
+.photo-gallery + h5,
+.photo-gallery + h6 {
+  margin-top: 2rem;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.querySelector('.lightbox-image');
+  const lightboxClose = document.querySelector('.lightbox-close');
+  const lightboxPrev = document.querySelector('.lightbox-prev');
+  const lightboxNext = document.querySelector('.lightbox-next');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  
+  let currentIndex = 0;
+  
+  // Collect images from both main gallery and inline galleries
+  const allGalleryItems = document.querySelectorAll('.gallery-item, .inline-gallery-item');
+  const images = Array.from(allGalleryItems).map(item => ({
+    src: item.dataset.src,
+    alt: item.dataset.alt,
+    width: item.dataset.width ? parseInt(item.dataset.width) : null,
+    height: item.dataset.height ? parseInt(item.dataset.height) : null,
+    aspect: item.dataset.aspect ? parseFloat(item.dataset.aspect) : null
+  }));
+  
+  // Debug logging to understand Hugo's image processing
+  function debugImageProcessing() {
+    galleryItems.forEach((item, index) => {
+      const img = item.querySelector('.gallery-thumb-original');
+      
+      if (img) {
+        img.onload = function() {
+          const naturalWidth = this.naturalWidth;
+          const naturalHeight = this.naturalHeight;
+          const reportedWidth = parseInt(item.dataset.width);
+          const reportedHeight = parseInt(item.dataset.height);
+          
+          console.log(`Image ${index}:`, {
+            natural: { width: naturalWidth, height: naturalHeight },
+            reported: { width: reportedWidth, height: reportedHeight },
+            naturalAspect: naturalWidth / naturalHeight,
+            reportedAspect: reportedWidth / reportedHeight,
+            src: this.src,
+            originalSrc: item.dataset.src
+          });
+        };
+      }
+    });
+  }
+  
+  // Debug image processing
+  debugImageProcessing();
+  
+  function showImage(index) {
+    if (index >= 0 && index < images.length) {
+      currentIndex = index;
+      lightboxImage.src = images[index].src;
+      lightboxImage.alt = images[index].alt;
+      
+      // Remove rotation - just load the image
+      lightboxImage.style.transform = 'none';
+      
+      lightbox.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  function hideImage() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  function nextImage() {
+    showImage((currentIndex + 1) % images.length);
+  }
+  
+  function prevImage() {
+    showImage((currentIndex - 1 + images.length) % images.length);
+  }
+  
+  // Event listeners for all gallery items (main + inline)
+  allGalleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => showImage(index));
+  });
+  
+  lightboxClose.addEventListener('click', hideImage);
+  lightboxNext.addEventListener('click', nextImage);
+  lightboxPrev.addEventListener('click', prevImage);
+  
+  // Close on click outside image
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      hideImage();
+    }
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (lightbox.style.display === 'block') {
+      switch(e.key) {
+        case 'Escape':
+          hideImage();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+      }
+    }
+  });
+});
+</script>
+{{ end }}

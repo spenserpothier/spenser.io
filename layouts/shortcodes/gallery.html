@@ -1,0 +1,154 @@
+{{ $path := .Get "path" | default .Page.RelPermalink }}
+{{ $size := .Get "size" | default "small" }}
+{{ $cols := .Get "cols" | default "auto" }}
+{{ $float := .Get "float" | default "left" }}
+
+{{ $images := slice }}
+{{ if .Get "images" }}
+  {{ $imageList := split (.Get "images") "," }}
+  {{ range $imageList }}
+    {{ $imageName := trim . " " }}
+    {{ $image := $.Page.Resources.GetMatch $imageName }}
+    {{ if $image }}
+      {{ $images = $images | append $image }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $images = .Page.Resources.ByType "image" }}
+{{ end }}
+
+{{ if $images }}
+<div class="inline-gallery inline-gallery-{{ $size }}{{ if eq $cols "auto" }}{{ else }} inline-gallery-cols-{{ $cols }}{{ end }}{{ if ne $float "left" }} float-{{ $float }}{{ end }}">
+  {{ range $index, $image := $images }}
+    {{ $thumb := "" }}
+    {{ $large := $image.Resize "1200x q85" }}
+    
+    {{ if eq $size "small" }}
+      {{ $thumb = $image.Fit "150x150 q85" }}
+    {{ else if eq $size "medium" }}
+      {{ $thumb = $image.Fit "240x240 q85" }}
+    {{ else if eq $size "large" }}
+      {{ $thumb = $image.Fit "300x300 q85" }}
+    {{ end }}
+    
+    <div class="inline-gallery-item" data-src="{{ $large.Permalink }}" data-alt="{{ $image.Title | default $.Page.Title }}">
+      <img src="{{ $thumb.Permalink }}" alt="{{ $image.Title | default $.Page.Title }}" 
+           class="inline-gallery-thumb" loading="lazy">
+    </div>
+  {{ end }}
+</div>
+
+<style>
+.inline-gallery {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  vertical-align: top;
+}
+
+.inline-gallery-small {
+  gap: 0.25rem;
+}
+
+.inline-gallery-medium {
+  gap: 0.5rem;
+}
+
+.inline-gallery-large {
+  gap: 0.75rem;
+}
+
+.inline-gallery-cols-1 {
+  flex-direction: column;
+}
+
+.inline-gallery-cols-2 .inline-gallery-item {
+  flex: 0 0 calc(50% - 0.25rem);
+}
+
+.inline-gallery-cols-3 .inline-gallery-item {
+  flex: 0 0 calc(33.333% - 0.34rem);
+}
+
+.inline-gallery-item {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.inline-gallery-thumb {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  image-orientation: from-image;
+  object-fit: contain;
+}
+
+.inline-gallery-thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Float options for better text flow */
+.inline-gallery-small {
+  max-width: 200px;
+}
+
+.inline-gallery-medium {
+  max-width: 300px;
+}
+
+.inline-gallery-large {
+  max-width: 400px;
+}
+
+/* Default behavior - float left for natural text flow */
+.inline-gallery {
+  float: left;
+  margin: 0 1rem 0.5rem 0;
+  clear: none;
+}
+
+/* Optional float classes */
+.inline-gallery.float-left {
+  float: left;
+  margin: 0 1rem 0.5rem 0;
+}
+
+.inline-gallery.float-right {
+  float: right;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.inline-gallery.float-center {
+  display: block;
+  float: none;
+  margin: 1rem auto;
+  text-align: center;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const inlineGalleryItems = document.querySelectorAll('.inline-gallery-item');
+  
+  inlineGalleryItems.forEach((item, index) => {
+    item.addEventListener('click', function() {
+      // Reuse existing lightbox functionality
+      const existingLightbox = document.getElementById('lightbox');
+      if (existingLightbox) {
+        const lightboxImage = existingLightbox.querySelector('.lightbox-image');
+        lightboxImage.src = this.dataset.src;
+        lightboxImage.alt = this.dataset.alt;
+        existingLightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+});
+</script>
+{{ end }}
