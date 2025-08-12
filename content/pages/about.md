@@ -15,7 +15,7 @@ My name is Spenser Pothier (he/him), I live in Seattle, WA and obvserve the [Pac
 
 {{< fa fa-briefcase >}} I currently work as a Site Reliability Engineer.
 
-{{< fa fa-graduation-cap >}} I went to the [University of Washington - Bothell](http://uwb.edu/css) to pursue a degree in Computing and Software Systems
+{{< fa fa-graduation-cap >}} I went to the [University of Washington - Bothell](http://uwb.edu/) to pursue a degree in Computing and Software Systems
 
 {{< fa fa-heart >}} I enjoy spending time outdoors hiking and backpacking with my wife. I also enjoy staying at home hanging out with our pets, playing games with friends, and working on improving our house and garden.
 
