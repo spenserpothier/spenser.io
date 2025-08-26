@@ -12,6 +12,7 @@ showWordCount: false
 showDate: false
 showTableOfContents: false
 sharingLinks: false
+showBreadcrumbs: false
 ---
 This is a [now page](https://nownownow.com/about)
 
