@@ -2,8 +2,7 @@
 title: "Now"
 date: 2021-12-06T22:00:00-08:00
 description: "What I'm working on now"
-aliases:
-- /now/
+aliases: ["/now/"]
 
 article:
 showAuthor: false
