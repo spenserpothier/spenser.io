@@ -19,9 +19,16 @@
     identifier = "Blog"
     url = "/posts/index.html"
 
+#[[main]]
+#    name = "Photos"
+#    #pre = "<i class='fa fa-camera'></i>"
+#    weight = -15
+#    identifier = "Photos"
+#    url = "/photos/index.html"
+
 [[main]]
-    name = "Photos"
+    name = "Projects"
     #pre = "<i class='fa fa-camera'></i>"
     weight = -15
-    identifier = "Photos"
-    url = "/photos/index.html"
+    identifier = "Projects"
+    url = "/Projects/index.html"

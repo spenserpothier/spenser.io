@@ -1,0 +1,233 @@
+{{ define "main" }}
+<header>
+  {{ if .Site.Params.article.showBreadcrumbs | default false }}
+  {{ partial "breadcrumbs.html" . }}
+  {{ end }}
+  <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+    {{ .Title | emojify }}
+  </h1>
+  {{ if .Params.description }}
+  <p class="text-lg text-neutral-700 dark:text-neutral-300 mt-4">{{ .Params.description }}</p>
+  {{ end }}
+</header>
+
+<section class="mt-8">
+  {{ .Content }}
+
+  {{ if .Pages }}
+  <div class="project-cards-grid mt-8">
+    {{ range .Pages }}
+    <article class="project-card group">
+      <a href="{{ .Permalink }}" class="block h-full">
+        {{ $thumbnail := .Resources.GetMatch "thumbnail.*" }}
+        {{ if $thumbnail }}
+        {{ $resized := $thumbnail.Fill "400x250 q85" }}
+        <div class="project-card-image">
+          <img src="{{ $resized.Permalink }}" alt="{{ .Title }}"
+               class="project-card-img" loading="lazy">
+        </div>
+        {{ else }}
+        {{ $firstImage := index (.Resources.ByType "image") 0 }}
+        {{ if $firstImage }}
+        {{ $resized := $firstImage.Fill "400x250 q85" }}
+        <div class="project-card-image">
+          <img src="{{ $resized.Permalink }}" alt="{{ .Title }}"
+               class="project-card-img" loading="lazy">
+        </div>
+        {{ else }}
+        <div class="project-card-image project-card-placeholder">
+          <svg class="placeholder-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        {{ end }}
+        {{ end }}
+        <div class="project-card-content">
+          <h3 class="project-card-title">
+            {{ .Title }}
+          </h3>
+          {{ if .Params.description }}
+          <p class="project-card-description">{{ .Params.description }}</p>
+          {{ end }}
+          {{ if .Params.tags }}
+          <div class="project-card-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="project-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ if .Date }}
+          <time class="project-card-date">
+            {{ .Date.Format "Jan 2006" }}
+          </time>
+          {{ end }}
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+  <style>
+  .project-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: rgb(245 245 245);
+    position: relative;
+  }
+
+  .project-card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-icon {
+    width: 60px;
+    height: 60px;
+    color: rgb(163 163 163);
+    opacity: 0.3;
+  }
+
+  .project-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-card-img {
+    transform: scale(1.05);
+  }
+
+  .project-card-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgb(23 23 23);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .project-card-description {
+    font-size: 0.9rem;
+    color: rgb(115 115 115);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  .project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: rgb(240 240 240);
+    color: rgb(82 82 82);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .project-card-date {
+    font-size: 0.8rem;
+    color: rgb(163 163 163);
+    font-weight: 500;
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .project-card {
+      background: rgb(38 38 38);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card-image {
+      background: rgb(64 64 64);
+    }
+
+    .project-card-title {
+      color: rgb(245 245 245);
+    }
+
+    .project-card-description {
+      color: rgb(163 163 163);
+    }
+
+    .project-tag {
+      background: rgb(64 64 64);
+      color: rgb(212 212 212);
+    }
+
+    .project-card-date {
+      color: rgb(115 115 115);
+    }
+
+    .placeholder-icon {
+      color: rgb(115 115 115);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .project-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .project-card-image {
+      height: 180px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-cards-grid {
+      gap: 2rem;
+    }
+  }
+  </style>
+  {{ end }}
+</section>
+{{ end }}
