@@ -13,6 +13,8 @@ draft: false
 
 I had an idea during COVID lockdown for an EDH counter app that could be run on each players personal device for keeping track of score while playing remotely. Lockdown eventually ended and I never actually got around to creating the app during that time, but the idea still stuck with me. The app itself always seemed like a relatively simple CRUD app for the most part, so it felt like a pretty good candidate for learning how to thoroughly vibe code. I was able to get to a v1 having only used prompts and writing just a small amount of code that I knew I could do myself faster than figuring out how to phrase a prompt to generate said code.
 
+Since this project was entirely vibe coded into existence, please also see my position on using LLMs at my [/ai](/ai) page.
+
 ## Technologies Used
 
 - **Frontend**: Vue, Typescript
