@@ -23,6 +23,10 @@ uglyUrls = true
   #        {Keybase = "https://keybase.io/spenserpothier"}
       ]
 menu = ['main']
+
+[taxonomies]
+  tag = "tags"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 

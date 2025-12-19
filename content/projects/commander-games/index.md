@@ -2,7 +2,7 @@
 title: "Commander.games"
 date: 2025-12-15T15:55:16-08:00
 description: "Yet another EDH Counter application entirely vibe coded into existence"
-tags: []
+tags: ["LLMs", "Vue", "Typescript", "Go", "Cloudflare Pages", "Fly.io"]
 github: ""
 demo: ""
 website: "https://commander.games"
