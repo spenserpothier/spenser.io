@@ -11,17 +11,15 @@ I enjoy seeing the setups of folks on instagram/reddit/etc., so here is a post t
 
 - 2020 Macbook Pro M1 13"
 - AirPods Pro
-- iPhone 12 Pro
+- iPhone 15 Pro
 - iPad Mini 6th Generation
-- Magic Mouse
+- Magic Mouse (or Logitech MX3)
 - Apple Watch Series 6
 - Bose QC35 II
 - Keychron K7 Ultra-slim Wireless Mechanical Keyboard (and pouch)
 - SteamDeck
-- Nintendo Switch
 - Anker Dongle
 - Various cables
-  - Lightning 
   - USB-C cables
   - HDMI
 
