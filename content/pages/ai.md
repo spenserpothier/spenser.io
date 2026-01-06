@@ -12,10 +12,10 @@ sharingLinks: false
 showBreadcrumbs: false
 ---
 
-As of 2025-08-26, here is how I've used generative AI/LLM tools.
+As of 2026-01-06, here is how I've used generative AI/LLM tools.
 
 ---
-I use [claude.ai](https://claude.ai) mostly for fixing or creating new things in the theme of this website. Occasionaly I've used it for brainstorming, but anything posted on this website unless explicitly specified otherwise was created by me.
+I use [claude.ai](https://claude.ai) mostly for fixing or creating new things in the theme of this website. Occasionaly I've used it for brainstorming, but anything posted on this website unless explicitly specified otherwise was created by me. I've also been playing around with [Ollama](https://ollama.com/) to learn more about how they work, and how to run them locally without sharing data with the big providers of LLMs. 
 
 The point of this page is to let you know that nothing claiming to be written by me on this site is written by an AI/LLM.
 
