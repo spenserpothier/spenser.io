@@ -1,13 +1,13 @@
 ---
 title: "Extending a Terraform Provider"
-date: 2022-03-30T18:00:00-07:00
-draft: true
+date: 2026-01-05T18:00:00-07:00
+draft: false
 summary: |
     At my day job I was given the opportunity to contribute to a Terraform provider for datadog to add the ability to create a monitor using a JSON document.
 ---
 
 {{< alert >}}
-This article is not yet finished
+I started this article in 2022 and have forgotten a lot of the additional details I intended to write nearly 4 years ago as of 2026. Rather than leave it in drafts I have decided to at least publish what I had in the hopes of helping anyone else starting out extending a terraform provider.
 {{< /alert >}}
 
 ## Problem
@@ -18,7 +18,7 @@ At my day job we use terraform pretty extensively for all of our infrastructure.
 
 Hashicorp provides an excellent [tutorial](https://learn.hashicorp.com/collections/terraform/providers) on their learning site on how to write a provider for terraform. Datadog also has some useful [instructions](https://github.com/DataDog/terraform-provider-datadog/blob/master/DEVELOPMENT.md) on the development process they use for this provider.
 
-https://github.com/DataDog/terraform-provider-datadog/pull/1226
+Here is the [PR](https://github.com/DataDog/terraform-provider-datadog/pull/1226) that adds the ability to create a monitor using a JSON document.
 
 ### Forcing in dev provider
 
