@@ -23,11 +23,12 @@ Greater Seattle area. I observe the [Pacific time zone](https://time.is/Seattle)
 ## What I'm Doing Now
 
 Perfecting my [mobile work setup](/posts/mobile-tech-setup.html).
-
-Building a [second brain](https://www.buildingasecondbrain.com/).
+Learning how to use [Blender](https://www.blender.org/).
+Camping adventures.
 
 ## What is on my backlog
 
-Learning how to use [Blender](https://www.blender.org/) and [Unity](https://unity.com/)
+More camping adventures, venturing further out and for longer.
+Lots of books, lots of games.
 
 <!-- ## What I'm considering doing -->
