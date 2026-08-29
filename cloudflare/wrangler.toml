@@ -1,0 +1,14 @@
+name = "recently-playing"
+main = "recently-playing-worker.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+# Your Hugo site's origin — locks CORS to your domain only.
+# Remove or set to "*" during local dev if needed.
+ALLOWED_ORIGIN = "https://spenser.io"
+
+# Secrets are NOT stored here — set them with:
+#   wrangler secret put STEAM_API_KEY
+#   wrangler secret put STEAM_USER_ID
+#   wrangler secret put RA_API_KEY
+#   wrangler secret put RA_USERNAME

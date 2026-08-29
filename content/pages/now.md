@@ -20,6 +20,10 @@ This is a [now page](https://nownownow.com/about)
 
 Greater Seattle area. I observe the [Pacific time zone](https://time.is/Seattle)
 
+## What I'm playing now
+
+{{< recently-playing >}}
+
 ## What I'm Doing Now
 
 Perfecting my [mobile work setup](/posts/mobile-tech-setup.html).

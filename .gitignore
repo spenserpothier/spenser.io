@@ -92,3 +92,5 @@ fabric.properties
 
 # Other
 content/projects/sample-project/
+cloudflare/.dev.vars
+**/*/node_modules/
