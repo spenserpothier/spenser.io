@@ -12,7 +12,7 @@ sharingLinks: false
 showBreadcrumbs: false
 ---
 
-My name is Spenser Pothier (he/him), I live in Seattle, WA and obvserve the [Pacific time zone](https://time.is/Seattle). I am an engineer and I help create software on all platforms. 
+My name is Spenser Pothier (he/him), I live in Seattle, WA and obvserve the [Pacific time zone](https://time.is/Seattle). I help create software on all platforms. 
 
 {{< fa fa-briefcase >}} I currently work as a Site Reliability Engineer.
 
